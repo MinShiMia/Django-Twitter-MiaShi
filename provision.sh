@@ -2,7 +2,7 @@
 
 echo 'Start!'
 
-sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.12 #3.6 2 given by jiuzhang
+sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.6 2 #3.6 2 given by jiuzhang
 
 cd /vagrant
 
@@ -30,13 +30,13 @@ fi
 # python -m pip install --upgrade pip
 # 换源完美解决
 # 安装pip所需依赖
-pip install --upgrade setuptools -i https://pypi.tuna.tsinghua.edu.cn/simple
-pip install --ignore-installed wrapt -i https://pypi.tuna.tsinghua.edu.cn/simple
+# pip install --upgrade setuptools -i https://pypi.tuna.tsinghua.edu.cn/simple
+# pip install --ignore-installed wrapt -i https://pypi.tuna.tsinghua.edu.cn/simple
 # 安装pip最新版
-pip install -U pip -i https://pypi.tuna.tsinghua.edu.cn/simple
+# pip install -U pip -i https://pypi.tuna.tsinghua.edu.cn/simple
 # 根据 requirements.txt 里的记录安装 pip package，确保所有版本之间的兼容性
-pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
-#
+# pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
+
 
 # 设置mysql的root账户的密码为yourpassword
 # 创建名为twitter的数据库
@@ -48,26 +48,6 @@ sudo mysql -u root << EOF
 EOF
 # fi
 
-# superuser名字
-USER="admin"
-# superuser密码
-PASS="admin"
-# superuser邮箱
-MAIL="admin@twitter.com"
-script="
-from django.contrib.auth.models import User;
-
-username = '$USER';
-password = '$PASS';
-email = '$MAIL';
-
-if not User.objects.filter(username=username).exists():
-    User.objects.create_superuser(username, email, password);
-    print('Superuser created.');
-else:
-    print('Superuser creation skipped.');
-"
-printf "$script" | python manage.py shell
 
 
 # 如果想直接进入/vagrant路径下

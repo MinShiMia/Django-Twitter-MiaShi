@@ -140,3 +140,5 @@ dmypy.json
 .pyre/
 /.pycharm_helpers/
 .idea
+
+Django-Twitter-Architecture/
