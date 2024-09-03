@@ -1,0 +1,583 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2761
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Last login: Wed Sep  4 22:46:09 on console\
+min@MacBook-Pro ~ % cd Documents/PythonProjects/Django-Twitter-MiaShi\
+min@MacBook-Pro Django-Twitter-MiaShi % ls -lt\
+total 17024\
+-rw-r--r--@ 1 min  staff  8622904 Sep  4 21:35 vagrant-vmware-utility_1.0.23-1_amd64.deb\
+drwxr-xr-x  8 min  staff      256 Sep  4 21:21 X\
+-rw-r--r--  1 min  staff     3388 Sep  4 21:14 Vagrantfile\
+-rwxr-xr-x@ 1 min  staff     2342 Sep  4 19:42 provision.sh\
+-rwxrwxr-x  1 min  staff      657 Sep  4 19:33 manage.py\
+-rw-r--r--@ 1 min  staff    18068 Sep  4 17:54 mysql-apt-config_0.8.32-1_all.deb\
+-rw-r--r--@ 1 min  staff     1386 Sep  4 17:01 requirements.txt\
+-rw-r--r--  1 min  staff    35532 Sep  3 16:05 mysql-apt-config_0.8.15-1_all.deb\
+-rw-r--r--  1 min  staff     3352 Sep  3 16:05 Vagrantfile.temp\
+-rw-r--r--  1 min  staff      103 Sep  3 16:05 SSH.txt.pub\
+-rw-r--r--  1 min  staff      464 Sep  3 16:05 SSH.txt\
+drwxr-xr-x@ 4 min  staff      128 Jun  9 20:53 Django-Twitter-Architecture\
+-rw-r--r--  1 min  staff        0 Mar 11 10:47 main.py\
+-rw-r--r--  1 min  staff       24 Mar 11 10:46 README.md\
+min@MacBook-Pro Django-Twitter-MiaShi % vagrant up\
+Bringing machine 'default' up with 'vmware_desktop' provider...\
+==> default: Checking if box 'bento/ubuntu-22.04' version '202401.31.0' is up to date...\
+==> default: Verifying vmnet devices are healthy...\
+==> default: Preparing network adapters...\
+==> default: Starting the VMware VM...\
+==> default: Waiting for the VM to receive an address...\
+==> default: Forwarding ports...\
+    default: -- 80 => 8080\
+    default: -- 22 => 2222\
+==> default: Waiting for machine to boot. This may take a few minutes...\
+    default: SSH address: 127.0.0.1:2222\
+    default: SSH username: vagrant\
+    default: SSH auth method: private key\
+==> default: Machine booted and ready!\
+==> default: Configuring network adapters within the VM...\
+==> default: Waiting for HGFS to become available...\
+==> default: Enabling and configuring shared folders...\
+    default: -- /Users/min/Documents/PythonProjects/Django-Twitter-MiaShi: /vagrant\
+==> default: Machine already provisioned. Run `vagrant provision` or use the `--provision`\
+==> default: flag to force provisioning. Provisioners marked to run always will still run.\
+min@MacBook-Pro Django-Twitter-MiaShi % vagrant ssh\
+Welcome to Ubuntu 22.04.3 LTS (GNU/Linux 5.15.0-92-generic aarch64)\
+\
+ * Documentation:  https://help.ubuntu.com\
+ * Management:     https://landscape.canonical.com\
+ * Support:        https://ubuntu.com/pro\
+\
+  System information as of Thu Sep  5 05:48:30 AM UTC 2024\
+\
+  System load:  0.9404296875       Processes:             232\
+  Usage of /:   16.6% of 29.82GB   Users logged in:       0\
+  Memory usage: 28%                IPv4 address for eth0: 192.168.160.132\
+  Swap usage:   0%                 IPv4 address for eth1: 192.168.33.10\
+\
+\
+This system is built by the Bento project by Chef Software\
+More information can be found at https://github.com/chef/bento\
+Last login: Thu Sep  5 05:32:30 2024 from 192.168.160.1\
+vagrant@vagrant:/vagrant$ python --version\
+-bash: python: command not found\
+vagrant@vagrant:/vagrant$ python3 --version\
+Python 3.10.12\
+vagrant@vagrant:/vagrant$ python3 -m django --version\
+5.1.1\
+vagrant@vagrant:/vagrant$ python3 manage.py migrate\
+Operations to perform:\
+  Apply all migrations: admin, auth, contenttypes, sessions\
+Running migrations:\
+  No migrations to apply.\
+vagrant@vagrant:/vagrant$ python3 manage.py runserver 0.0.0.0:8000\
+Watching for file changes with StatReloader\
+Performing system checks...\
+\
+System check identified no issues (0 silenced).\
+September 05, 2024 - 05:55:04\
+Django version 5.1.1, using settings 'X.settings'\
+Starting development server at http://0.0.0.0:8000/\
+Quit the server with CONTROL-C.\
+\
+^Cvagrant@vagrant:/vagrant$ python3 manage.py runserver 0.0.0.0:8080\
+Watching for file changes with StatReloader\
+Performing system checks...\
+\
+System check identified no issues (0 silenced).\
+September 05, 2024 - 05:56:25\
+Django version 5.1.1, using settings 'X.settings'\
+Starting development server at http://0.0.0.0:8080/\
+Quit the server with CONTROL-C.\
+\
+^Cvagrant@vagrant:/vagrant$ python3 manage.py runserver 127.0.0.1:8080\
+Watching for file changes with StatReloader\
+Performing system checks...\
+\
+System check identified no issues (0 silenced).\
+September 05, 2024 - 05:57:01\
+Django version 5.1.1, using settings 'X.settings'\
+# -*- mode: ruby -*-\
+# vi: set ft=ruby :\
+\
+Starting development server at http://127.0.0.1:8080/\
+Quit the server with CONTROL-C.\
+\
+^Cvagrant@vagrant:/vagrant$ logout\
+min@MacBook-Pro Django-Twitter-MiaShi % vi Vagrantfile\
+min@MacBook-Pro Django-Twitter-MiaShi % vagrant ssh\
+Welcome to Ubuntu 22.04.3 LTS (GNU/Linux 5.15.0-92-generic aarch64)\
+\
+ * Documentation:  https://help.ubuntu.com\
+ * Management:     https://landscape.canonical.com\
+ * Support:        https://ubuntu.com/pro\
+\
+  System information as of Thu Sep  5 05:59:38 AM UTC 2024\
+\
+  System load:  0.0166015625       Processes:             200\
+  Usage of /:   16.6% of 29.82GB   Users logged in:       0\
+  Memory usage: 29%                IPv4 address for eth0: 192.168.160.132\
+  Swap usage:   0%                 IPv4 address for eth1: 192.168.33.10\
+\
+\
+This system is built by the Bento project by Chef Software\
+More information can be found at https://github.com/chef/bento\
+Last login: Thu Sep  5 05:48:59 2024 from 192.168.160.1\
+vagrant@vagrant:/vagrant$ python3 manage.py runserver 127.0.0.1:80\
+Watching for file changes with StatReloader\
+Performing system checks...\
+\
+System check identified no issues (0 silenced).\
+Error: You don't have permission to access that port.\
+vagrant@vagrant:/vagrant$ logout\
+min@MacBook-Pro Django-Twitter-MiaShi % vi Vagrantfile\
+min@MacBook-Pro Django-Twitter-MiaShi % vagrant provision\
+min@MacBook-Pro Django-Twitter-MiaShi % vagrant up --provision\
+Bringing machine 'default' up with 'vmware_desktop' provider...\
+==> default: Checking if box 'bento/ubuntu-22.04' version '202401.31.0' is up to date...\
+==> default: Machine is already running.\
+min@MacBook-Pro Django-Twitter-MiaShi % vagrant halt\
+==> default: Attempting graceful shutdown of VM...\
+min@MacBook-Pro Django-Twitter-MiaShi % vagrant up --provision\
+Bringing machine 'default' up with 'vmware_desktop' provider...\
+==> default: Checking if box 'bento/ubuntu-22.04' version '202401.31.0' is up to date...\
+==> default: Verifying vmnet devices are healthy...\
+==> default: Preparing network adapters...\
+==> default: Starting the VMware VM...\
+==> default: Waiting for the VM to receive an address...\
+==> default: Forwarding ports...\
+    default: -- 81 => 8081\
+    default: -- 22 => 2222\
+==> default: Waiting for machine to boot. This may take a few minutes...\
+    default: SSH address: 127.0.0.1:2222\
+    default: SSH username: vagrant\
+    default: SSH auth method: private key\
+==> default: Machine booted and ready!\
+==> default: Configuring network adapters within the VM...\
+==> default: Waiting for HGFS to become available...\
+# -*- mode: ruby -*-\
+==> default: Enabling and configuring shared folders...\
+    default: -- /Users/min/Documents/PythonProjects/Django-Twitter-MiaShi: /vagrant\
+min@MacBook-Pro Django-Twitter-MiaShi % vagrant ssh\
+Welcome to Ubuntu 22.04.3 LTS (GNU/Linux 5.15.0-92-generic aarch64)\
+\
+ * Documentation:  https://help.ubuntu.com\
+ * Management:     https://landscape.canonical.com\
+ * Support:        https://ubuntu.com/pro\
+\
+  System information as of Thu Sep  5 06:03:31 AM UTC 2024\
+\
+  System load:  0.12353515625      Processes:             234\
+  Usage of /:   16.6% of 29.82GB   Users logged in:       0\
+  Memory usage: 28%                IPv4 address for eth0: 192.168.160.132\
+  Swap usage:   0%                 IPv4 address for eth1: 192.168.33.10\
+\
+\
+This system is built by the Bento project by Chef Software\
+More information can be found at https://github.com/chef/bento\
+Last login: Thu Sep  5 05:59:38 2024 from 192.168.160.1\
+vagrant@vagrant:/vagrant$ python3 manage.py runserver 127.0.0.1:81\
+Watching for file changes with StatReloader\
+Performing system checks...\
+\
+System check identified no issues (0 silenced).\
+Error: You don't have permission to access that port.\
+vagrant@vagrant:/vagrant$ logout\
+min@MacBook-Pro Django-Twitter-MiaShi % vagrant halt\
+==> default: Attempting graceful shutdown of VM...\
+min@MacBook-Pro Django-Twitter-MiaShi % vi Vagrantfile\
+min@MacBook-Pro Django-Twitter-MiaShi % vim Vagrantfile\
+min@MacBook-Pro Django-Twitter-MiaShi % vagrant up --provision\
+Bringing machine 'default' up with 'vmware_desktop' provider...\
+==> default: Checking if box 'bento/ubuntu-22.04' version '202401.31.0' is up to date...\
+==> default: Verifying vmnet devices are healthy...\
+==> default: Preparing network adapters...\
+==> default: Starting the VMware VM...\
+==> default: Waiting for the VM to receive an address...\
+==> default: Forwarding ports...\
+    default: -- 8080 => 9090\
+    default: -- 22 => 2222\
+==> default: Waiting for machine to boot. This may take a few minutes...\
+    default: SSH address: 127.0.0.1:2222\
+    default: SSH username: vagrant\
+    default: SSH auth method: private key\
+==> default: Machine booted and ready!\
+==> default: Configuring network adapters within the VM...\
+==> default: Waiting for HGFS to become available...\
+==> default: Enabling and configuring shared folders...\
+    default: -- /Users/min/Documents/PythonProjects/Django-Twitter-MiaShi: /vagrant\
+min@MacBook-Pro Django-Twitter-MiaShi % vagrant ssh\
+Welcome to Ubuntu 22.04.3 LTS (GNU/Linux 5.15.0-92-generic aarch64)\
+\
+ * Documentation:  https://help.ubuntu.com\
+ * Management:     https://landscape.canonical.com\
+ * Support:        https://ubuntu.com/pro\
+\
+  System information as of Thu Sep  5 06:06:26 AM UTC 2024\
+\
+  System load:  0.44287109375      Processes:             233\
+  Usage of /:   16.7% of 29.82GB   Users logged in:       0\
+  Memory usage: 28%                IPv4 address for eth0: 192.168.160.132\
+  Swap usage:   0%                 IPv4 address for eth1: 192.168.33.10\
+\
+\
+This system is built by the Bento project by Chef Software\
+More information can be found at https://github.com/chef/bento\
+Last login: Thu Sep  5 06:03:44 2024 from 192.168.160.1\
+vagrant@vagrant:/vagrant$ python3 manage.py runserver 127.0.0.1:8080\
+Watching for file changes with StatReloader\
+Performing system checks...\
+\
+System check identified no issues (0 silenced).\
+September 05, 2024 - 06:06:54\
+Django version 5.1.1, using settings 'X.settings'\
+Starting development server at http://127.0.0.1:8080/\
+Quit the server with CONTROL-C.\
+\
+^Cvagrant@vagrant:/vagrant$ python3 manage.py runserver 127.0.0.1:9090\
+Watching for file changes with StatReloader\
+Performing system checks...\
+\
+System check identified no issues (0 silenced).\
+September 05, 2024 - 06:15:24\
+Django version 5.1.1, using settings 'X.settings'\
+Starting development server at http://127.0.0.1:9090/\
+Quit the server with CONTROL-C.\
+\
+^Cvagrant@vagrant:/vagrant$ python3 manage.py runserver 127.0.0.1:8080\
+Watching for file changes with StatReloader\
+Performing system checks...\
+\
+System check identified no issues (0 silenced).\
+September 05, 2024 - 06:16:06\
+Django version 5.1.1, using settings 'X.settings'\
+Starting development server at http://127.0.0.1:8080/\
+Quit the server with CONTROL-C.\
+\
+^Cvagrant@vagrant:/vagrant$ python3 manage.py runserver 127.0.0.1:8080\
+Watching for file changes with StatReloader\
+Performing system checks...\
+\
+System check identified no issues (0 silenced).\
+September 05, 2024 - 06:21:12\
+Django version 5.1.1, using settings 'X.settings'\
+Starting development server at http://127.0.0.1:8080/\
+Quit the server with CONTROL-C.\
+\
+^Cvagrant@vagrant:/vagrant$ python3 manage.py runserver 127.0.0.1:8080\
+Watching for file changes with StatReloader\
+Performing system checks...\
+\
+System check identified no issues (0 silenced).\
+September 05, 2024 - 06:27:40\
+Django version 5.1.1, using settings 'X.settings'\
+Starting development server at http://127.0.0.1:8080/\
+Quit the server with CONTROL-C.\
+\
+/vagrant/X/settings.py changed, reloading.\
+Watching for file changes with StatReloader\
+Performing system checks...\
+\
+System check identified no issues (0 silenced).\
+September 05, 2024 - 06:33:22\
+Django version 5.1.1, using settings 'X.settings'\
+Starting development server at http://127.0.0.1:8080/\
+Quit the server with CONTROL-C.\
+\
+/vagrant/X/settings.py changed, reloading.\
+Watching for file changes with StatReloader\
+Performing system checks...\
+\
+System check identified no issues (0 silenced).\
+September 05, 2024 - 06:37:41\
+Django version 5.1.1, using settings 'X.settings'\
+Starting development server at http://127.0.0.1:8080/\
+Quit the server with CONTROL-C.\
+\
+/vagrant/X/settings.py changed, reloading.\
+Watching for file changes with StatReloader\
+Performing system checks...\
+\
+System check identified no issues (0 silenced).\
+September 05, 2024 - 06:38:16\
+Django version 5.1.1, using settings 'X.settings'\
+Starting development server at http://127.0.0.1:8080/\
+Quit the server with CONTROL-C.\
+\
+^Cvagrant@vagrant:/vagrant$ mkdir testProject\
+vagrant@vagrant:/vagrant$ cd testProject/\
+vagrant@vagrant:/vagrant/testProject$ django-admin startproject twitter2 .\
+vagrant@vagrant:/vagrant/testProject$ python manage.py migrate\
+-bash: python: command not found\
+vagrant@vagrant:/vagrant/testProject$ python3 manage.py migrate\
+Operations to perform:\
+  Apply all migrations: admin, auth, contenttypes, sessions\
+Running migrations:\
+  Applying contenttypes.0001_initial... OK\
+  Applying auth.0001_initial... OK\
+  Applying admin.0001_initial... OK\
+  Applying admin.0002_logentry_remove_auto_add... OK\
+  Applying admin.0003_logentry_add_action_flag_choices... OK\
+  Applying contenttypes.0002_remove_content_type_name... OK\
+  Applying auth.0002_alter_permission_name_max_length... OK\
+  Applying auth.0003_alter_user_email_max_length... OK\
+  Applying auth.0004_alter_user_username_opts... OK\
+  Applying auth.0005_alter_user_last_login_null... OK\
+  Applying auth.0006_require_contenttypes_0002... OK\
+  Applying auth.0007_alter_validators_add_error_messages... OK\
+  Applying auth.0008_alter_user_username_max_length... OK\
+  Applying auth.0009_alter_user_last_name_max_length... OK\
+  Applying auth.0010_alter_group_name_max_length... OK\
+  Applying auth.0011_update_proxy_permissions... OK\
+  Applying auth.0012_alter_user_first_name_max_length... OK\
+  Applying sessions.0001_initial... OK\
+vagrant@vagrant:/vagrant/testProject$ python3 manage.py runserver 0.0.0.0:8080\
+Watching for file changes with StatReloader\
+Performing system checks...\
+\
+System check identified no issues (0 silenced).\
+September 05, 2024 - 06:42:12\
+Django version 5.1.1, using settings 'twitter2.settings'\
+Starting development server at http://0.0.0.0:8080/\
+Quit the server with CONTROL-C.\
+\
+[05/Sep/2024 06:42:19] "GET / HTTP/1.1" 200 12068\
+[05/Sep/2024 06:42:32] "GET / HTTP/1.1" 200 12068\
+Not Found: /favicon.ico\
+[05/Sep/2024 06:42:32] "GET /favicon.ico HTTP/1.1" 404 2210\
+/vagrant/testProject/twitter2/settings.py changed, reloading.\
+Watching for file changes with StatReloader\
+Performing system checks...\
+\
+System check identified no issues (0 silenced).\
+September 05, 2024 - 06:44:29\
+Django version 5.1.1, using settings 'twitter2.settings'\
+Starting development server at http://0.0.0.0:8080/\
+Quit the server with CONTROL-C.\
+\
+[05/Sep/2024 06:44:31] "GET / HTTP/1.1" 200 12068\
+[05/Sep/2024 06:45:09] "GET / HTTP/1.1" 200 12068\
+Not Found: /favicon.ico\
+[05/Sep/2024 06:45:09] "GET /favicon.ico HTTP/1.1" 404 2214\
+/vagrant/testProject/twitter2/settings.py changed, reloading.\
+Watching for file changes with StatReloader\
+Performing system checks...\
+\
+System check identified no issues (0 silenced).\
+September 05, 2024 - 06:47:34\
+Django version 5.1.1, using settings 'twitter2.settings'\
+Starting development server at http://0.0.0.0:8080/\
+Quit the server with CONTROL-C.\
+\
+[05/Sep/2024 06:47:38] "GET / HTTP/1.1" 200 12068\
+[05/Sep/2024 06:47:41] "GET / HTTP/1.1" 200 12068\
+Not Found: /apple-touch-icon-precomposed.png\
+[05/Sep/2024 06:47:41] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 2273\
+Not Found: /apple-touch-icon.png\
+*.box\
+.vagrant\
+Vagrantfile\
+media/\
+hbase-2.4.4/\
+.DS_Store\
+jdk-8u291-linux-x64.tar.gz\
+hbase-2.4.4-bin.tar.gz\
+thrift-0.14.2.tar.gz\
+thrift-0.14.2/\
+\
+# Byte-compiled / optimized / DLL files\
+__pycache__/\
+*.py[cod]\
+*$py.class\
+\
+# C extensions\
+*.so\
+\
+# Distribution / packaging\
+.Python\
+build/\
+develop-eggs/\
+dist/\
+downloads/\
+eggs/\
+.eggs/\
+lib/\
+lib64/\
+parts/\
+sdist/\
+".gitignore" [noeol] 144L, 1997B                                         1,1           Top\
+[05/Sep/2024 06:47:41] "GET /apple-touch-icon.png HTTP/1.1" 404 2237\
+[05/Sep/2024 06:47:49] "GET / HTTP/1.1" 200 12068\
+Not Found: /favicon.ico\
+[05/Sep/2024 06:47:50] "GET /favicon.ico HTTP/1.1" 404 2210\
+^Cvagrant@vagrant:/vagrant/testProject$ cd ..\
+vagrant@vagrant:/vagrant$ ls -lt\
+total 8489\
+drwxr-xr-x 1 vagrant vagrant     160 Sep  5 06:41 testProject\
+drwxr-xr-x 1 vagrant vagrant     256 Sep  5 06:38 X\
+-rw-r--r-- 1 vagrant vagrant    3390 Sep  5 06:05 Vagrantfile\
+-rw-r--r-- 1 vagrant vagrant 8622904 Sep  5 04:35 vagrant-vmware-utility_1.0.23-1_amd64.deb\
+-rwxr-xr-x 1 vagrant vagrant    2342 Sep  5 02:42 provision.sh\
+-rwxrwxr-x 1 vagrant vagrant     657 Sep  5 02:33 manage.py\
+-rw-r--r-- 1 vagrant vagrant   18068 Sep  5 00:54 mysql-apt-config_0.8.32-1_all.deb\
+-rw-r--r-- 1 vagrant vagrant    1386 Sep  5 00:01 requirements.txt\
+-rw-r--r-- 1 vagrant vagrant   35532 Sep  3 23:05 mysql-apt-config_0.8.15-1_all.deb\
+-rw-r--r-- 1 vagrant vagrant     464 Sep  3 23:05 SSH.txt\
+-rw-r--r-- 1 vagrant vagrant     103 Sep  3 23:05 SSH.txt.pub\
+-rw-r--r-- 1 vagrant vagrant    3352 Sep  3 23:05 Vagrantfile.temp\
+drwxr-xr-x 1 vagrant vagrant     128 Jun 10 03:53 Django-Twitter-Architecture\
+-rw-r--r-- 1 vagrant vagrant       0 Mar 11 17:47 main.py\
+-rw-r--r-- 1 vagrant vagrant      24 Mar 11 17:46 README.md\
+vagrant@vagrant:/vagrant$ mkdir backupFiles\
+vagrant@vagrant:/vagrant$ mv * backupFiles/\
+mv: cannot move 'backupFiles' to a subdirectory of itself, 'backupFiles/backupFiles'\
+vagrant@vagrant:/vagrant$ mv backupFiles/Vagrantfile .\
+vagrant@vagrant:/vagrant$ mv backupFiles/.\
+./  ../\
+vagrant@vagrant:/vagrant$ vi .git\
+.git/       .gitignore\
+vagrant@vagrant:/vagrant$ vi .gitignore\
+vagrant@vagrant:/vagrant$ django-admin startproject X-clone .\
+CommandError: 'X-clone' is not a valid project name. Please make sure the name is a valid identifier.\
+vagrant@vagrant:/vagrant$ django-admin startproject X_clone\
+vagrant@vagrant:/vagrant$ ls -lt\
+total 5\
+drwxr-xr-x 1 vagrant vagrant  128 Sep  5 06:51 X_clone\
+drwxr-xr-x 1 vagrant vagrant  512 Sep  5 06:50 backupFiles\
+-rw-r--r-- 1 vagrant vagrant 3390 Sep  5 06:05 Vagrantfile\
+vagrant@vagrant:/vagrant$ mv X_clone/* .\
+mv: cannot move 'X_clone/X_clone' to './X_clone': Directory not empty\
+vagrant@vagrant:/vagrant$ ls -lt\
+total 6\
+drwxr-xr-x 1 vagrant vagrant   96 Sep  5 06:52 X_clone\
+-rwxrwxr-x 1 vagrant vagrant  663 Sep  5 06:51 manage.py\
+drwxr-xr-x 1 vagrant vagrant  512 Sep  5 06:50 backupFiles\
+-rw-r--r-- 1 vagrant vagrant 3390 Sep  5 06:05 Vagrantfile\
+vagrant@vagrant:/vagrant$ rm -rf X_clone\
+vagrant@vagrant:/vagrant$ ls -lt\
+total 5\
+-rwxrwxr-x 1 vagrant vagrant  663 Sep  5 06:51 manage.py\
+drwxr-xr-x 1 vagrant vagrant  512 Sep  5 06:50 backupFiles\
+-rw-r--r-- 1 vagrant vagrant 3390 Sep  5 06:05 Vagrantfile\
+vagrant@vagrant:/vagrant$ rm manage.py\
+vagrant@vagrant:/vagrant$ django-admin startproject X_clone .\
+vagrant@vagrant:/vagrant$ ls -lt\
+total 6\
+-rwxrwxr-x 1 vagrant vagrant  663 Sep  5 06:53 manage.py\
+drwxr-xr-x 1 vagrant vagrant  224 Sep  5 06:53 X_clone\
+drwxr-xr-x 1 vagrant vagrant  512 Sep  5 06:50 backupFiles\
+-rw-r--r-- 1 vagrant vagrant 3390 Sep  5 06:05 Vagrantfile\
+vagrant@vagrant:/vagrant$ cd X_clone/\
+asgi.py      __init__.py  settings.py  urls.py      wsgi.py\
+vagrant@vagrant:/vagrant$ mv X_clone/* .\
+vagrant@vagrant:/vagrant$ ls -lt\
+total 11\
+drwxr-xr-x 1 vagrant vagrant   64 Sep  5 06:53 X_clone\
+-rw-rw-r-- 1 vagrant vagrant  391 Sep  5 06:53 asgi.py\
+-rw-rw-r-- 1 vagrant vagrant    0 Sep  5 06:53 __init__.py\
+-rwxrwxr-x 1 vagrant vagrant  663 Sep  5 06:53 manage.py\
+-rw-rw-r-- 1 vagrant vagrant 3224 Sep  5 06:53 settings.py\
+-rw-rw-r-- 1 vagrant vagrant  763 Sep  5 06:53 urls.py\
+-rw-rw-r-- 1 vagrant vagrant  391 Sep  5 06:53 wsgi.py\
+drwxr-xr-x 1 vagrant vagrant  512 Sep  5 06:50 backupFiles\
+-rw-r--r-- 1 vagrant vagrant 3390 Sep  5 06:05 Vagrantfile\
+vagrant@vagrant:/vagrant$ mv *.py X_clone/\
+vagrant@vagrant:/vagrant$ ls -lt\
+total 5\
+drwxr-xr-x 1 vagrant vagrant  256 Sep  5 06:54 X_clone\
+drwxr-xr-x 1 vagrant vagrant  512 Sep  5 06:50 backupFiles\
+-rw-r--r-- 1 vagrant vagrant 3390 Sep  5 06:05 Vagrantfile\
+vagrant@vagrant:/vagrant$ rm -rf X_clone\
+vagrant@vagrant:/vagrant$ ls -lt\
+total 4\
+drwxr-xr-x 1 vagrant vagrant  512 Sep  5 06:50 backupFiles\
+-rw-r--r-- 1 vagrant vagrant 3390 Sep  5 06:05 Vagrantfile\
+vagrant@vagrant:/vagrant$ django-admin startproject X_clone .\
+vagrant@vagrant:/vagrant$ python manage.py migrate\
+-bash: python: command not found\
+vagrant@vagrant:/vagrant$ python3 manage.py migrate\
+Operations to perform:\
+  Apply all migrations: admin, auth, contenttypes, sessions\
+Running migrations:\
+  Applying contenttypes.0001_initial... OK\
+  Applying auth.0001_initial... OK\
+  Applying admin.0001_initial... OK\
+  Applying admin.0002_logentry_remove_auto_add... OK\
+  Applying admin.0003_logentry_add_action_flag_choices... OK\
+  Applying contenttypes.0002_remove_content_type_name... OK\
+  Applying auth.0002_alter_permission_name_max_length... OK\
+  Applying auth.0003_alter_user_email_max_length... OK\
+  Applying auth.0004_alter_user_username_opts... OK\
+  Applying auth.0005_alter_user_last_login_null... OK\
+  Applying auth.0006_require_contenttypes_0002... OK\
+  Applying auth.0007_alter_validators_add_error_messages... OK\
+  Applying auth.0008_alter_user_username_max_length... OK\
+  Applying auth.0009_alter_user_last_name_max_length... OK\
+  Applying auth.0010_alter_group_name_max_length... OK\
+  Applying auth.0011_update_proxy_permissions... OK\
+  Applying auth.0012_alter_user_first_name_max_length... OK\
+  Applying sessions.0001_initial... OK\
+vagrant@vagrant:/vagrant$ python manage.py runserver 0.0.0.0:8080\
+-bash: python: command not found\
+vagrant@vagrant:/vagrant$ python3 manage.py runserver 0.0.0.0:8080\
+Watching for file changes with StatReloader\
+Performing system checks...\
+\
+System check identified no issues (0 silenced).\
+September 05, 2024 - 06:57:34\
+Django version 5.1.1, using settings 'X_clone.settings'\
+Starting development server at http://0.0.0.0:8080/\
+Quit the server with CONTROL-C.\
+\
+[05/Sep/2024 06:57:55] "GET / HTTP/1.1" 200 12068\
+Not Found: /favicon.ico\
+[05/Sep/2024 06:57:57] "GET /favicon.ico HTTP/1.1" 404 2209\
+[05/Sep/2024 06:58:19] "GET / HTTP/1.1" 200 12068\
+Not Found: /favicon.ico\
+[05/Sep/2024 06:58:20] "GET /favicon.ico HTTP/1.1" 404 2209\
+Invalid HTTP_HOST header: '0.0.0.0:9090'. You may need to add '0.0.0.0' to ALLOWED_HOSTS.\
+Traceback (most recent call last):\
+  File "/home/vagrant/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner\
+    response = get_response(request)\
+  File "/home/vagrant/.local/lib/python3.10/site-packages/django/utils/deprecation.py", line 128, in __call__\
+    response = self.process_request(request)\
+  File "/home/vagrant/.local/lib/python3.10/site-packages/django/middleware/common.py", line 48, in process_request\
+    host = request.get_host()\
+  File "/home/vagrant/.local/lib/python3.10/site-packages/django/http/request.py", line 151, in get_host\
+    raise DisallowedHost(msg)\
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '0.0.0.0:9090'. You may need to add '0.0.0.0' to ALLOWED_HOSTS.\
+Bad Request: /\
+[05/Sep/2024 06:58:37] "GET / HTTP/1.1" 400 63001\
+Invalid HTTP_HOST header: '0.0.0.0:9090'. You may need to add '0.0.0.0' to ALLOWED_HOSTS.\
+Traceback (most recent call last):\
+  File "/home/vagrant/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner\
+    response = get_response(request)\
+  File "/home/vagrant/.local/lib/python3.10/site-packages/django/utils/deprecation.py", line 128, in __call__\
+    response = self.process_request(request)\
+  File "/home/vagrant/.local/lib/python3.10/site-packages/django/middleware/common.py", line 48, in process_request\
+    host = request.get_host()\
+  File "/home/vagrant/.local/lib/python3.10/site-packages/django/http/request.py", line 151, in get_host\
+    raise DisallowedHost(msg)\
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '0.0.0.0:9090'. You may need to add '0.0.0.0' to ALLOWED_HOSTS.\
+Bad Request: /favicon.ico\
+[05/Sep/2024 06:58:39] "GET /favicon.ico HTTP/1.1" 400 63519\
+/vagrant/X_clone/settings.py changed, reloading.\
+Watching for file changes with StatReloader\
+Performing system checks...\
+\
+System check identified no issues (0 silenced).\
+September 05, 2024 - 06:58:59\
+Django version 5.1.1, using settings 'X_clone.settings'\
+Starting development server at http://0.0.0.0:8080/\
+Quit the server with CONTROL-C.\
+\
+[05/Sep/2024 06:59:03] "GET / HTTP/1.1" 200 12068\
+Not Found: /favicon.ico\
+[05/Sep/2024 06:59:04] "GET /favicon.ico HTTP/1.1" 404 2207\
+[05/Sep/2024 07:01:00] "GET / HTTP/1.1" 200 12068\
+Not Found: /favicon.ico\
+[05/Sep/2024 07:01:02] "GET /favicon.ico HTTP/1.1" 404 2213\
+}
