@@ -59,9 +59,9 @@ EOF
 # superuser名字
 USER="admin"
 # superuser密码
-PASS="admin"
+PASS="940915Sm"
 # superuser邮箱
-MAIL="admin@twitter.com"
+MAIL="admin@X.com"
 script="
 from django.contrib.auth.models import User;
 
